@@ -77,9 +77,12 @@
             40%, 60% { transform: translate3d(4px, 0, 0); }
         }
 
-        .controller-svg {
-            filter: drop-shadow(0 10px 15px -3px rgba(0, 0, 0, 0.1));
-            transition: transform 0.1s ease;
+        .controller-image {
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            filter: drop-shadow(0 4px 6px rgba(0, 179, 149, 0.2));
+            transition: transform 0.075s ease;
+            will-change: transform;
         }
 
         @media print {
@@ -95,7 +98,8 @@
         
         <!-- Header -->
         <header class="relative h-64 overflow-hidden bg-black">
-            <div class="absolute -right-10 top-1/2 -translate-y-1/2 w-4/5 opacity-30 grayscale transform rotate-3 pointer-events-none text-gray-700 text-9xl font-black">🎮</div>
+            <img src="image_ca5216.jpg" alt="TEMO Hintergrund" 
+                 class="absolute -right-10 top-1/2 -translate-y-1/2 w-4/5 opacity-30 grayscale transform rotate-3 pointer-events-none">
             
             <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent flex items-center p-8 md:p-12">
                 <div class="text-white space-y-3 z-10">
@@ -259,69 +263,15 @@
                             </div>
                         </div>
 
-                        <!-- Gaming Controller SVG -->
+                        <!-- Gaming Controller -->
                         <div class="text-center">
-                            <div id="controller-wrapper" class="relative inline-block cursor-pointer">
-                                <svg id="gaming-controller" class="w-full max-w-[180px] controller-svg select-none" viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg" onmousedown="triggerBeep(event)">
-                                    <defs>
-                                        <linearGradient id="controllerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#4a4a4a;stop-opacity:1" />
-                                            <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
-                                        </linearGradient>
-                                        <radialGradient id="handleGradient" cx="30%" cy="30%">
-                                            <stop offset="0%" style="stop-color:#6a6a6a;stop-opacity:1" />
-                                            <stop offset="100%" style="stop-color:#2a2a2a;stop-opacity:1" />
-                                        </radialGradient>
-                                    </defs>
-                                    
-                                    <!-- Left Handle -->
-                                    <path d="M 40 100 Q 20 120 30 180 Q 40 200 60 190 L 80 160 Q 85 140 80 120 Z" fill="url(#handleGradient)" stroke="#000" stroke-width="2"/>
-                                    
-                                    <!-- Right Handle -->
-                                    <path d="M 360 100 Q 380 120 370 180 Q 360 200 340 190 L 320 160 Q 315 140 320 120 Z" fill="url(#handleGradient)" stroke="#000" stroke-width="2"/>
-                                    
-                                    <!-- Main Body -->
-                                    <ellipse cx="200" cy="80" rx="120" ry="50" fill="url(#controllerGradient)" stroke="#000" stroke-width="2"/>
-                                    
-                                    <!-- Center Section -->
-                                    <rect x="140" y="70" width="120" height="100" rx="20" fill="url(#controllerGradient)" stroke="#000" stroke-width="2"/>
-                                    
-                                    <!-- Left Trigger Button Area -->
-                                    <rect x="60" y="50" width="50" height="35" rx="8" fill="#3a4a4a" stroke="#000" stroke-width="1.5"/>
-                                    <text x="85" y="72" font-family="Arial" font-size="16" font-weight="bold" fill="#888888" text-anchor="middle">⤷</text>
-                                    
-                                    <!-- Right Trigger Button Area -->
-                                    <rect x="290" y="50" width="50" height="35" rx="8" fill="#3a4a4a" stroke="#000" stroke-width="1.5"/>
-                                    <text x="315" y="72" font-family="Arial" font-size="16" font-weight="bold" fill="#888888" text-anchor="middle">⤶</text>
-                                    
-                                    <!-- Left D-Pad -->
-                                    <g transform="translate(110, 110)">
-                                        <circle cx="0" cy="0" r="25" fill="#2a2a2a" stroke="#000" stroke-width="1.5" opacity="0.8"/>
-                                        <rect x="-4" y="-12" width="8" height="10" fill="#555" stroke="#000" stroke-width="1"/>
-                                        <rect x="-4" y="2" width="8" height="10" fill="#555" stroke="#000" stroke-width="1"/>
-                                        <rect x="-12" y="-4" width="10" height="8" fill="#555" stroke="#000" stroke-width="1"/>
-                                        <rect x="2" y="-4" width="10" height="8" fill="#555" stroke="#000" stroke-width="1"/>
-                                    </g>
-                                    
-                                    <!-- Right Buttons (A, B, X, Y) -->
-                                    <g transform="translate(290, 110)">
-                                        <circle cx="0" cy="-15" r="8" fill="#e74c3c" stroke="#000" stroke-width="1"/>
-                                        <text x="0" y="-12" font-family="Arial" font-size="10" font-weight="bold" fill="white" text-anchor="middle">A</text>
-                                        
-                                        <circle cx="15" cy="0" r="8" fill="#3498db" stroke="#000" stroke-width="1"/>
-                                        <text x="15" y="3" font-family="Arial" font-size="10" font-weight="bold" fill="white" text-anchor="middle">B</text>
-                                        
-                                        <circle cx="-15" cy="0" r="8" fill="#f39c12" stroke="#000" stroke-width="1"/>
-                                        <text x="-15" y="3" font-family="Arial" font-size="10" font-weight="bold" fill="white" text-anchor="middle">X</text>
-                                        
-                                        <circle cx="0" cy="15" r="8" fill="#2ecc71" stroke="#000" stroke-width="1"/>
-                                        <text x="0" y="18" font-family="Arial" font-size="10" font-weight="bold" fill="white" text-anchor="middle">Y</text>
-                                    </g>
-                                    
-                                    <!-- Center Button -->
-                                    <rect x="185" y="125" width="30" height="20" rx="4" fill="#1a1a1a" stroke="#555" stroke-width="1"/>
-                                    <circle cx="200" cy="135" r="3" fill="#666"/>
-                                </svg>
+                            <div id="controller-wrapper" class="relative inline-block cursor-pointer perspective">
+                                <img id="gaming-controller" 
+                                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" 
+                                     alt="Gaming Controller" 
+                                     class="w-full max-w-[180px] select-none controller-image"
+                                     onmousedown="triggerBeep(event)"
+                                     style="transform: perspective(600px) rotateY(0deg);">
                                 <div id="beep-container" class="absolute inset-0 pointer-events-none"></div>
                             </div>
                             <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-2 leading-relaxed">
@@ -385,6 +335,25 @@
             });
         });
 
+        // Controller Animation
+        const controller = document.getElementById('gaming-controller');
+        const gameInput = { keys: {} };
+
+        window.addEventListener('keydown', e => { gameInput.keys[e.key.toLowerCase()] = true; });
+        window.addEventListener('keyup', e => { gameInput.keys[e.key.toLowerCase()] = false; });
+
+        function animateController() {
+            let steer = 0;
+            if (gameInput.keys['a'] || gameInput.keys['arrowleft']) steer = -1;
+            if (gameInput.keys['d'] || gameInput.keys['arrowright']) steer = 1;
+            
+            const rotateY = steer * 35;
+            controller.style.transform = `perspective(600px) rotateY(${rotateY}deg)`;
+            
+            requestAnimationFrame(animateController);
+        }
+        animateController();
+
         // Game Setup
         const canvas = document.getElementById('game-canvas');
         const ctx = canvas.getContext('2d');
@@ -394,7 +363,6 @@
         const gameOverOverlay = document.getElementById('game-over-overlay');
         const finalStats = document.getElementById('final-stats');
         const canvasContainer = document.getElementById('canvas-container');
-        const gamingController = document.getElementById('gaming-controller');
 
         let gameActive = false;
         let score = 0;
@@ -410,10 +378,10 @@
 
         const snacks = [];
         const obstacles = [];
-        const gameInput = { steer: 0, thrust: false, keys: {} };
+        const gameInputGame = { steer: 0, thrust: false, keys: {} };
 
-        window.addEventListener('keydown', e => { gameInput.keys[e.key.toLowerCase()] = true; });
-        window.addEventListener('keyup', e => { gameInput.keys[e.key.toLowerCase()] = false; });
+        window.addEventListener('keydown', e => { gameInputGame.keys[e.key.toLowerCase()] = true; });
+        window.addEventListener('keyup', e => { gameInputGame.keys[e.key.toLowerCase()] = false; });
 
         function initGame() {
             gameWidth = canvas.width = canvas.offsetWidth * 2;
@@ -500,21 +468,18 @@
             }
 
             let currentSteer = 0;
-            if (gameInput.keys['a'] || gameInput.keys['arrowleft']) currentSteer = -1;
-            if (gameInput.keys['d'] || gameInput.keys['arrowright']) currentSteer = 1;
-            gameInput.steer = currentSteer;
+            if (gameInputGame.keys['a'] || gameInputGame.keys['arrowleft']) currentSteer = -1;
+            if (gameInputGame.keys['d'] || gameInputGame.keys['arrowright']) currentSteer = 1;
+            gameInputGame.steer = currentSteer;
 
             let currentThrust = false;
-            if (gameInput.keys['w'] || gameInput.keys['arrowup']) currentThrust = true;
-            gameInput.thrust = currentThrust;
-
-            const rotateY = gameInput.steer * 35;
-            gamingController.style.transform = `rotateY(${rotateY}deg)`;
+            if (gameInputGame.keys['w'] || gameInputGame.keys['arrowup']) currentThrust = true;
+            gameInputGame.thrust = currentThrust;
 
             if (crashTimer > 0) crashTimer--;
 
-            player.angle += gameInput.steer * 0.07;
-            if (gameInput.thrust && crashTimer === 0) {
+            player.angle += gameInputGame.steer * 0.07;
+            if (gameInputGame.thrust && crashTimer === 0) {
                 player.speed = Math.min(player.speed + 0.18, player.maxSpeed);
             } else { player.speed *= 0.94; }
 
@@ -555,7 +520,7 @@
             ctx.fillStyle = player.color; ctx.beginPath(); ctx.roundRect(-player.w/2 + 3, player.h/2 - 18, player.w - 6, 12, 2); ctx.fill();
             ctx.save();
             ctx.translate(0, player.h/2 - 5);
-            ctx.rotate(gameInput.steer * 0.7);
+            ctx.rotate(gameInputGame.steer * 0.7);
             ctx.fillStyle = '#666'; ctx.fillRect(-2, -14, 4, 14);
             ctx.fillStyle = '#000'; ctx.beginPath(); ctx.roundRect(-7, -17, 14, 6, 2); ctx.fill();
             ctx.restore();
